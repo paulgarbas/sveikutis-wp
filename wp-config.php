@@ -79,6 +79,10 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+@ini_set( 'upload_max_size' , '100M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'memory_limit', '128M' );
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

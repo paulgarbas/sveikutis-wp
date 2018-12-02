@@ -80,6 +80,9 @@ if ( ! function_exists( 'sveikutis_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		 // cutom post thumbs
+		 add_image_size( 'homepage-lecturer', 200, 9999, false );
 	}
 endif;
 add_action( 'after_setup_theme', 'sveikutis_setup' );
@@ -148,4 +151,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
