@@ -10,7 +10,7 @@
  ?>
 
  <!-- Slider Start -->
- <section id="slider" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) no-repeat 10% 0%; background-size: cover; background-attachment: fixed;">
+<section id="slider" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) no-repeat 10% 0%; background-size: cover; background-attachment: fixed;">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-2">
@@ -127,6 +127,85 @@
                     </div> 
                 </div>
             <?php endforeach; ?>
+            <?php wp_reset_query(); ?>
         </div>
     </div>
 </section>
+
+<?php $book_background_img = get_field('seimos_knyga_fono_paveikslelis'); ?>
+<section id="call-to-action" style="background: url(<?php echo $book_background_img['url']; ?>) no-repeat; background-size: cover; background-attachment: fixed;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <div class="section-title">
+                        <?php if( get_field('seimos_knyga_pavadinimas') ): ?>
+                            <h2><?php the_field('seimos_knyga_pavadinimas'); ?></h2>
+                        <?php endif; ?>
+                       
+                        <?php if( get_field('seimos_knyga_virsutinis_tekstas') ): ?>
+                            <p><?php the_field('seimos_knyga_virsutinis_tekstas'); ?></p>
+                        <?php endif; ?>
+                       
+                        <?php 
+                            $book_image = get_field('seimos_knyga_paveikslelis');
+                            $thumb_img = $book_image['sizes']['homepage-book'];
+                        ?>
+                        <?php if(get_field('seimos_knyga_paveikslelis')) : ?>
+                            <img src="<?php echo $thumb_img; ?>" class="img-circle" alt="<?php the_field('seimos_knyga_pavadinimas'); ?>">    
+                        <?php endif; ?>
+                    </div>
+
+                    <?php if( get_field('seimos_knyga_apatinis_tekstas') ): ?>
+                        <p><?php the_field('seimos_knyga_apatinis_tekstas'); ?></p>
+                    <?php endif; ?>
+                   
+                    <?php if( get_field('seimos_knyga_mygtuko_tekstas') ): ?>
+                        <a class="btn btn-default btn-call-to-action" href="<?php the_field('seimos_knyga_mygtuko_nuoroda'); ?>" ><?php the_field('seimos_knyga_mygtuko_tekstas'); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section-title text-center">
+                    <?php if( get_field('atsiliepimai_pavadinimas') ): ?>
+                        <h2><?php the_field('atsiliepimai_pavadinimas'); ?></h2>
+                    <?php endif; ?>
+                </div>
+
+                <?php if( have_rows('atsiliepimas')) : ?>
+                    <div class="testimonial-carousel">
+                        <div id="testimonial-slider" class="owl-carousel">  
+                            <?php while ( have_rows('atsiliepimas') ) : the_row(); ?>
+                                <div>
+                                    <?php if( get_field('atsiliepimo_ikonele')) : ?>
+                                        <img src="<?php echo get_field('atsiliepimo_ikonele')['url']; ?>" alt="Mamų atsiliepimai apie Sveikutį">
+                                    <?php endif; ?>
+        
+                                    <p><?php the_sub_field('atsiliepimo_tekstas'); ?></p>
+
+                                    <div class="user">
+                                        <?php if (get_sub_field('nuotrauka')) : $testimonial_image = get_sub_field('nuotrauka'); $testimonial_size = 'testimonial-image'; ?>
+                                            <?php echo wp_get_attachment_image($testimonial_image, $testimonial_size); ?>
+                                        <?php else : ?>
+                                            <i class="icon ion-ios-person-outline" style="color:#ffd6eb"></i>
+                                        <?php endif; ?>
+
+                                        <p><span><?php the_sub_field('vardas'); ?></span></p>
+                                    </div>
+                                </div>                    
+                            <?php endwhile; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
