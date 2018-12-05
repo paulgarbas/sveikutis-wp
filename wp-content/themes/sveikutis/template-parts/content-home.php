@@ -85,7 +85,8 @@
     </div>
 </section>
 
-<section id="feature">
+<?php $team_background_img = get_field('musu_komanda_fono_paveikslelis'); ?>
+<section id="feature" style="background: url(<?php echo $team_background_img['url']; ?>) no-repeat center center; background-size: cover; background-attachment: fixed;">
     <div class="container">
         <?php if( get_field('musu_komanda_pavadinimas') ): ?>
             <div class="row team">
@@ -131,6 +132,18 @@
         </div>
     </div>
 </section>
+
+<section id="service">
+    <div class="container schedule-wrapper-outer">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 section-title schedule-header">
+          <h2>Tvarkaraštis</h2>
+        </div>
+      </div>
+      <div class="container">
+		 <?php echo do_shortcode('[mp-timetable title="1" time="1" sub-title="1" description="0" user="1" row_height="45" font_size="" increment="1" view="dropdown_list" label="Visi užsiėmimai" hide_label="0" hide_hrs="0" hide_empty_rows="1" group="0" disable_event_url="0" text_align="center" text_align_vertical="default" id="" custom_class="" responsive="1"]'); ?>
+	  </div>
+  </section>
 
 <?php $book_background_img = get_field('seimos_knyga_fono_paveikslelis'); ?>
 <section id="call-to-action" style="background: url(<?php echo $book_background_img['url']; ?>) no-repeat; background-size: cover; background-attachment: fixed;">
