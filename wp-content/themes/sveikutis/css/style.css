@@ -71,8 +71,8 @@ b, strong {
 .schedule-wrapper-outer .mptt-inner-event-content .event-user img {
   display: none !important;
 }
-/* .mptt-shortcode-table tr {
-  height: 90px;
+/* .mptt-inner-event-content {
+  height: 90px !important;
 } */
 
 /* .mptt-shortcode-event .mptt-event-container, 
@@ -321,7 +321,7 @@ font header .navbar-default .navbar-nav li a:hover {
 /* end of all casses */
 
 /* Schedule */
-.description-schedule table, .one-class table {
+/* .description-schedule table, .one-class table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
@@ -335,7 +335,7 @@ font header .navbar-default .navbar-nav li a:hover {
 }
 .description-schedule tbody tr {
   height: 1px;
-}
+} */
 @-moz-document url-prefix() { 
   .description-schedule tbody tr {
       height: 100%; 
