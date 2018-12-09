@@ -294,6 +294,10 @@ font header .navbar-default .navbar-nav li a:hover {
 .one-class {
   margin: 20px 0 40px 0;
 }
+
+.one-class-one table p {
+  margin-bottom: 0;
+}
 .one-class h2 {
   text-align: center;
   margin-bottom: 20px;
