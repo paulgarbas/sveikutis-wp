@@ -803,6 +803,9 @@ font header .navbar-default .navbar-nav li a:hover {
 .about-lecturer-last {
   margin-bottom: 40px;
 }
+.about-lecturer-section {
+  margin-bottom: 40px;
+}
 /* end of about lecturers */
 /* end of lecturers */
 
@@ -902,12 +905,12 @@ font header .navbar-default .navbar-nav li a:hover {
 	Slider-work Start 
 --*/
 #global-header {
-  background: url("../img/sveikutis_5.jpg") no-repeat;
-  background-size: cover;
+  /* background: url("../img/sveikutis_5.jpg") no-repeat; */
+  /* background-size: cover; */
   padding-top: 150px;
   padding-bottom: 107px;
   position: relative;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 #global-header:before {
   content: "";
@@ -1581,6 +1584,12 @@ footer .footer-copyright p {
   .social-icons {
     text-align: center;
   }
+  footer .footer-manu ul li {
+    display: block;
+  }
+  footer .footer-manu ul li + li {
+    margin-top: 15px;
+  }  
 }
 
 @media only screen and (max-width: 768px) {

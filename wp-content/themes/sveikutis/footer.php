@@ -27,11 +27,10 @@
 					</div>
 		
 					<div class="footer-copyright">
-						<?php if( have_rows('autoriniu_teisiu_sarasas') ): ?>
-							<?php while ( have_rows('autoriniu_teisiu_sarasas') ) : the_row(); ?>
-								<p><?php the_sub_field('autorines_teises'); ?></p>
-							<?php endwhile; ?>
-						<?php endif; ?>
+						<p>
+							<br>Copyright &copy; Sveikutis
+							<br>Copyright &copy; Rūta Čigriejūtė, piešiniai
+						</p>
 					</div>           
 				</div>
 			</div>
