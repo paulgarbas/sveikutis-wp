@@ -86,6 +86,9 @@ if ( ! function_exists( 'sveikutis_setup' ) ) :
 		 add_image_size( 'homepage-book', 250, 250, true );
 		 add_image_size( 'testimonial-image', 80, 80, true );
 		 add_image_size( 'komanda-single', 340, 9999, false );
+		 add_image_size( 'family-book', 250, 250, true );
+		 add_image_size( 'book-listening', 458, 365, true );
+		 add_image_size( 'news', 350, 350, true );
 	}
 endif;
 add_action( 'after_setup_theme', 'sveikutis_setup' );
