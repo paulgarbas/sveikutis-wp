@@ -42,7 +42,7 @@
                         <div class="news-all-single-img">
                             <a href="<?php echo get_permalink(); ?>">
                                 <?php if ( has_post_thumbnail() ): ?>
-                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'news'); ?>" alt="News">
+                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'news'); ?>" alt="Naujienos">
                                 <?php else: ?>
                                     <img src="<?php echo get_template_directory_uri(); ?>/img/sveikutis_2.jpg" alt="Naujienos">	
                                 <?php endif; ?>

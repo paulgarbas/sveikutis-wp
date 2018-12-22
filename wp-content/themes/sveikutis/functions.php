@@ -89,6 +89,7 @@ if ( ! function_exists( 'sveikutis_setup' ) ) :
 		 add_image_size( 'family-book', 250, 250, true );
 		 add_image_size( 'book-listening', 458, 365, true );
 		 add_image_size( 'news', 350, 350, true );
+		 add_image_size( 'news-inner-big', 1110, 450, false );
 	}
 endif;
 add_action( 'after_setup_theme', 'sveikutis_setup' );

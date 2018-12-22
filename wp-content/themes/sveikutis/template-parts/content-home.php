@@ -141,11 +141,12 @@
         </div>
       </div>
       <div class="container">
-		 <?php echo do_shortcode('[mp-timetable title="1" time="0" sub-title="0" description="1" user="1" row_height="90" font_size="" increment="1" view="dropdown_list" label="Visi užsiėmimai" hide_label="0" hide_hrs="0" hide_empty_rows="1" group="0" disable_event_url="0" text_align="center" text_align_vertical="default" id="" custom_class="" responsive="1"]'); ?>
+		 <?php echo do_shortcode('[mp-timetable title="1" time="0" sub-title="0" description="1" user="1" row_height="160" font_size="" increment="1" view="dropdown_list" label="Visi užsiėmimai" hide_label="0" hide_hrs="0" hide_empty_rows="1" group="0" disable_event_url="0" text_align="center" text_align_vertical="default" id="" custom_class="" responsive="1"]'); ?>
 	  </div>
   </section>
 
 <?php $book_background_img = get_field('seimos_knyga_fono_paveikslelis'); ?>
+
 <section id="call-to-action" style="background: url(<?php echo $book_background_img['url']; ?>) no-repeat; background-size: cover; background-attachment: fixed;">
     <div class="container">
         <div class="row">
