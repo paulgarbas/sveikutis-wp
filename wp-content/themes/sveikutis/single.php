@@ -26,73 +26,82 @@ get_header();
 
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 news-inner-latest">
-						<h2>
-							<strong><?php the_title(); ?></strong>
-						</h2>	
+					<div class="col-lg-6 news-inner-latest">
+						<div class="news-inner-img">
+							<?php if ( has_post_thumbnail() ): ?>
+								<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'news-inner-big'); ?>" alt="Naujiena">
+							<?php else: ?>
+								<img src="<?php echo get_template_directory_uri(); ?>/img/sveikutis_2.jpg" alt="Naujiena">		
+							<?php endif; ?>
+						</div>
 
 						<h4>
 							<strong><?php echo get_the_date(); ?></strong>
 						</h4>
 
-						<div class="news-inner-img">
-							<?php if ( has_post_thumbnail() ): ?>
-								<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'news-inner-big'); ?>" alt="Naujiena">
-							<?php else: ?>
-								<img src="<?php echo get_template_directory_uri(); ?>/img/sveikutis_2.jpg" alt="Naujienos">		
-							<?php endif; ?>
-						</div>
+						<h2>
+							<strong><?php the_title(); ?></strong>
+						</h2>	
 
 						<?php if (have_posts()) : ?>
 							<?php while (have_posts()) : the_post(); ?>
-								<?php the_content() ; ?> 
+								<div class="news-inner-latest-content">
+									<?php the_content() ; ?> 
+								</div>
 							<?php endwhile; ?>
 						<?php endif; ?>
 					</div>
-				</div>
+					
+					<?php
+						$args = array( 
+							'posts_per_page'    => 4, 
+							'post_type'         => 'post',
+							'post_status'       => 'publish',
+							'orderby'           => 'date',
+							'order'             => 'DESC',
+							'post__not_in'      => array(get_the_ID()),
+						);
+						$posts = new WP_Query( $args );
+					?>
 
-				<?php
-					$args = array( 
-						'posts_per_page'    => 3, 
-						'post_type'         => 'post',
-						'post_status'       => 'publish',
-						'orderby'           => 'date',
-						'order'             => 'DESC',
-						'post__not_in'      => array(get_the_ID()),
-					);
-					$posts = new WP_Query( $args );
-				?>
-				<div class="row news-inner-other">
-					<div class="col-lg-12">
-						<h3><strong>Kitos naujienos</strong></h3>
-					</div>
-				</div>
-
-				<?php if ( $posts->have_posts() ) : ?>
-					<div class="row news-inner-all">
-						<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
-							<div class="col-md-4">
-								<div class="news-inner-all-single">
-									<div class="news-inner-all-img">
-										<a href="<?php echo get_permalink(); ?>">
-											<?php if ( has_post_thumbnail() ): ?>
-												<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'news'); ?>" alt="News">
-											<?php else: ?>
-												<img src="<?php echo get_template_directory_uri(); ?>/img/sveikutis_2.jpg" alt="Naujienos">		
-											<?php endif; ?>
-										</a>
-									</div>
-						
-									<h4><strong><?php echo get_the_date(); ?></strong></h4>
-									<h3><strong><?php the_title(); ?></strong></h3>
-									<p><?php echo wp_trim_words(get_the_content(), 15, '...'); ?></p>
-									<a href="<?php echo get_permalink(); ?>" class="btn-news">Skaityti daugiau</a>
-								</div>
+					<div class="col-lg-6 news-inner-all">
+						<div class="row">
+							<div class="col-lg-12 news-inner-all-title">
+								<h3><strong>Kitos naujienos</strong></h3>
 							</div>
-						<?php endwhile; ?>
-						<?php wp_reset_postdata(); ?>
+						</div>
+
+						<?php if ( $posts->have_posts() ) : ?>
+							<div class="row">
+								<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
+									<div class="col-md-6 col-lg-12">
+										<div class="news-inner-all-single">
+											<div class="news-inner-all-img">
+												<a href="<?php echo get_permalink(); ?>">
+													<?php if ( has_post_thumbnail() ): ?>
+														<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'news-small'); ?>" alt="Naujiena">
+													<?php else: ?>
+														<img src="<?php echo get_template_directory_uri(); ?>/img/sveikutis_2.jpg" alt="Naujiena">	
+													<?php endif; ?>
+												</a>
+											</div>
+				
+											<div>
+												<h4><strong><?php echo get_the_date(); ?></strong></h4>
+												<h3>
+													<a href="<?php echo get_permalink(); ?>">
+														<strong><?php the_title(); ?></strong>
+													</a>
+												</h3>
+											</div>
+										</div>
+									</div>
+								<?php endwhile; ?>
+								<?php wp_reset_postdata(); ?>
+							</div>	
+						<?php endif; ?>
 					</div>	
-				<?php endif; ?>
+				</div>
 			</div>
 		</main>
 	</div>

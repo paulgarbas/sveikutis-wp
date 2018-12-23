@@ -57,7 +57,7 @@
                 <?php wp_reset_postdata(); ?>
             </div>
 
-            <div class="row-m">
+            <div class="row">
                 <div class="col-md-12">
                     <?php wp_pagenavi( array( 'query' => $posts )); ?>
                 </div>
