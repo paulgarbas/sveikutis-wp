@@ -838,6 +838,9 @@ font header .navbar-default .navbar-nav li a:hover {
 .news-all .wp-pagenavi .previouspostslink:hover, .news-all .wp-pagenavi .nextpostslink:hover {
   color: #969393;
 }
+.news-facebook-comments {
+  margin-top: 70px;
+}
 /* End of news */
 /*--
 	Feature Start 
@@ -1856,6 +1859,12 @@ footer .footer-copyright p {
 }
 
 @media (max-width: 575px) {
+  .news-inner-latest {
+    margin-top: 20px;
+  }
+  .news-inner-img {
+    height: unset;
+  }
   .news-inner-img img {
     object-fit: contain;
   }
